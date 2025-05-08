@@ -38,7 +38,7 @@ function Attendance() {
     axios("api/attendance/",
       {
         headers: {
-          Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MDI5ZDZkNmFmMTk4ZWQ2MTgxNWExNiIsImlhdCI6MTc0NjE3NTczNywiZXhwIjoxNzQ2MTc2NjM3fQ._TPKf1ZmosSEQBreDdaMkLvSsd_4-NGatTWsKjz5cMA"}`
+          Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MDI5ZDZkNmFmMTk4ZWQ2MTgxNWExNiIsImlhdCI6MTc0NjQ2MTk5NSwiZXhwIjoxNzQ2NDYyODk1fQ.GFt1AnuVVKYzl_0EYIW70RD90XgbCZS8jmROiQwTJFs"}`
         }
       }
     )
@@ -95,7 +95,7 @@ function Attendance() {
 
       </div>
 
-      <div className="d-flex justify-content-center my-3">
+      <div className="d-flex justify-content-center my-3 picker">
         <label className="fw-bold"></label>
         <DatePicker
           selected={dateatn}
@@ -107,13 +107,15 @@ function Attendance() {
       </div>
 
       <h3 className='text-center mt-3 ed'>Employee's Attendance</h3>
-      <div className="row">
+      <div className="row align mt-5">
         {filteredUsers.length > 0 ? (
           filteredUsers.map(user => (
 
             <div className="col-md-4 mb-4 mt-4" key={user._id}>
-              <div className="card h-100 shadow-sm bgclr ms-4">
-                <div className="card-body d-flex">
+              <div className="card h-100 shadow-sm atncard">
+                <div className="card-body  d-flex justify-content-between align-items-center">
+
+                <div className="d-flex align-items-center flex-grow-1">
 
                   <div className='firstletter'>
                     {user.employee?.name[0]}
@@ -121,25 +123,31 @@ function Attendance() {
 
 
                   {/* <h6 className="card-subtitle mb-2 text-muted">{user.employee?.mailId}</h6> */}
-                  <p className="card-text ms-4">
-
-                    <Link to="/atndetails" state={{ details: user.employee, check: user.sessions, dates: user.date }} className='text-dark text-decoration-none'>
-                      <h5 className="card-title">{user.employee?.name}</h5>
+                  
+                  <div className="card-text ms-4">
+                      <h5 className="card-title"> {user.employee?.name}</h5>
                       <strong>ID:</strong> {user.employee?.empId}<br />
-                    </Link>
+                   
 
                     {/* <strong>Email:</strong>  {new Date(user.date).toLocaleDateString()} <br/> 
                        <strong>Phone:</strong> {user.employee?.contactNo}<br />
                       <strong>Designation:</strong> {user.employee?.designation}<br />
                       <strong>Doj:</strong> {user.employee?.doj}<br/> */}
-                  </p>
+                  </div>
+                  </div>
+                
 
+                 
+                  <Link to="/atndetails" state={{ details: user.employee, check: user.sessions, dates: user.date }} className='text-dark text-decoration-none'>   <MdKeyboardArrowRight className='rightarw' /> </Link>
+                 
 
                 </div>
+               
+
                 <div className='d-flex atnbgclr pt-2'>
-                  <strong className='ms-4'>Date:</strong>  {new Date(user.date).toLocaleDateString('en-GB')} <br />
-                  <strong className='ms-4'>Phone:</strong> {user.employee?.contactNo}<br />
-                  <strong className='ms-4'>Doj:</strong> {new Date(user.employee?.doj).toLocaleDateString()}<br />
+                  <strong className='ms-4 date'>Date:</strong> <p className='ms-1'>{new Date(user.date).toLocaleDateString('en-GB')}</p> 
+                  <strong className='ms-4 phone'>Phone:</strong> <p className='ms-1'>{user.employee?.contactNo}</p>
+                  <strong className='ms-4 doj'>Doj:</strong> <p className='ms-1'>{new Date(user.employee?.doj).toLocaleDateString()}</p>
                   {/* <strong>{new Date (user.sessions?.checkIn).toLocaleDateString()}</strong> */}
 
 
@@ -157,7 +165,7 @@ function Attendance() {
             </div>
           ))
         ) : (
-          <p className='text-center'>No users found.</p>
+          <p className='text-center tc'>No users found</p>
         )}
 
       </div>

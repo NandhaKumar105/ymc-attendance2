@@ -10,28 +10,27 @@ import { IoMail } from "react-icons/io5";
 import sct from "../assets/sct.jpeg";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 
-function Atndetails()
-{
-      const atn  = useLocation();
-      // const navigate = useNavigate();
-      const atndetails = atn.state.details;
-      const session = atn.state.check;
-      const da = atn.state.dates;
-      
-    return(
-        <>
+function Atndetails() {
+  const atn = useLocation();
+  // const navigate = useNavigate();
+  const atndetails = atn.state.details;
+  const session = atn.state.check;
+  const da = atn.state.dates;
 
- <div className='content'>
-          
-           <Link to="/attendance"> <MdKeyboardArrowLeft className='leftaw'/></Link> 
+  return (
+    <>
 
-            {/* <img src={ymc} width={170}></img>
+      <div className='content'>
+
+        <Link to="/attendance"> <MdKeyboardArrowLeft className='leftaw' /></Link>
+
+        {/* <img src={ymc} width={170}></img>
           <Link to="/home" className='text-decoration-none'> <button className='btn1  '>Employee's Details</button></Link> 
              <Link to='/attendance' className='text-decoration-none'><button className='btn2 bg-warning'>Employee's Attendance</button></Link> 
      */}
-    
-    
-{/*     
+
+
+        {/*     
              <Popup trigger={<IoMdInformationCircleOutline className='info' />} modal closeOnDocumentClick contentStyle={{ borderRadius: '12px', padding: '0', width: '90%', maxWidth: '400px' }}>
                {(close) => (
                  <div className="p-1 bg-white rounded text-center">
@@ -43,31 +42,31 @@ function Atndetails()
                  </div>
                )}
              </Popup> */}
-    
-           </div>
-     
 
-           <div className="container mt-5">
-     
-      <div className='firstletters'>
-                      {atndetails?.name[0]} 
+      </div>
 
-                      
-                    </div>
 
-                    <div className='text-center mt-3'>
-                    <b>{atndetails?.name} </b> <br />
-                    {atndetails?.designation}<br />
-                    </div>
+      <div className="container mt-5">
 
-            <div className="card shadow p-3 mt-3 bgclratn rounded">
-               <div className="card-body ">
-         
-                  <p className="card-text d-flex ">
-                  <strong>Employee ID: {atndetails?.empId}</strong><br />
-                  <strong className='ms-3'>Date: {da ? new Date(da).toLocaleDateString('en-GB') : "N/A"} </strong> <br />
+        <div className='firstlettersatn'>
+          {atndetails?.name[0]}
 
-                  <strong className='ms-3'> Hours:  
+
+        </div>
+
+        <div className='text-center namedesign mt-3'>
+          <b>{atndetails?.name} </b> <br />
+          {atndetails?.designation}<br />
+        </div>
+
+        <div className="card shadow p-3 mt-3 bgclratn rounded">
+          <div className="card-body ">
+
+            <p className="card-text d-flex one ">
+              <strong className='ms-5' >Employee ID: <br /> {atndetails?.empId}</strong>
+              <strong className='ms-5' >Date:  <br /> {da ? new Date(da).toLocaleDateString('en-GB') : "N/A"} </strong>
+
+              {/* <strong className='ms-3'> Hours:  
                  
       {
         session?.reduce((acc, item) => {
@@ -80,49 +79,73 @@ function Atndetails()
           }
 
           return acc;
-        }, 0) .toFixed(2)
+        },   0) .toFixed(2)
       }min
-    </strong>
-                
-                 </p>
-                </div>
-              </div>
+    </strong> */}
+
+              <strong className="ms-5">
+                Hours: <br /> {
+                  (() => {
+                    const totalHours = session?.reduce((acc, item) => {
+                      const checkIn = item.checkIn ? new Date(item.checkIn) : null;
+                      const checkOut = item.checkOut ? new Date(item.checkOut) : null;
+
+                      if (checkIn && checkOut) {
+                        const diff = (checkOut - checkIn) / (1000 * 60 * 60);
+                        return acc + diff;
+                      }
+
+                      return acc;
+                    }, 0) || 0;
+
+                    const hours = Math.floor(totalHours);
+                    const minutes = Math.round((totalHours - hours) * 60);
+
+                    return `${hours} hrs ${minutes} mins`;
+                  })()
+                }
+              </strong> 
 
 
-
-
-                       
-             
-               <div className="card-body ">
-         
-      {session?.map((item, index) => (
-         <div className="card shadow p-3 mt-3 bgclrempd rounded">
-        <div key={index} style={{ marginBottom: "10px" }}>
-          <h6>Sessions {index+1}</h6>
-          <strong className='ms-5'>Check-In:</strong> {item.checkIn ? new Date(item.checkIn).toLocaleTimeString() : "No check-in"}
-        
-          <strong className='ms-5'>Check-Out:</strong> {item.checkOut ? new Date(item.checkOut).toLocaleTimeString() : "No check-out"}
-          <div>
-          <strong className='checkin'></strong>{item.checkInLocation}
-          <strong className='checkout'></strong>{item.checkOutLocation}
+            </p>
           </div>
-    
         </div>
-        </div>
-       
-       
-
-      ))}
 
 
-             
+
+
+
+
+        <div className="card-body ">
+
+          {session?.map((item, index) => (
+            <div className="card shadow p-3 mt-3 bgclratndet rounded">
+              <div key={index} style={{ marginBottom: "10px" ,fontSize:"15px"}}>
+                <h6>Sessions {index + 1}</h6>
+                <strong className='ms-5'>Check-In:</strong> {item.checkIn ? new Date(item.checkIn).toLocaleTimeString() : "No check-in"}
+
+                <strong className='ms-5' >Check-Out:</strong> {item.checkOut ? new Date(item.checkOut).toLocaleTimeString() : "No check-out"}
+                <div>
+                  <strong className='checkin'></strong>{item.checkInLocation}
+                  <strong className='checkout'></strong>{item.checkOutLocation}
+                </div>
+
               </div>
-                    
-                       
-                      
-  </div> 
-        
-        </>
-    )
+            </div>
+
+
+
+          ))}
+
+
+
+        </div>
+
+
+
+      </div>
+
+    </>
+  )
 }
 export default Atndetails;
