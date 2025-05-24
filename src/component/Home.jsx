@@ -65,7 +65,7 @@ function Home() {
     axios("api/employees/getAllEmployees",
       {
         headers: {
-          Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MDI5ZDZkNmFmMTk4ZWQ2MTgxNWExNiIsImlhdCI6MTc0NjQ2MTk5NSwiZXhwIjoxNzQ2NDYyODk1fQ.GFt1AnuVVKYzl_0EYIW70RD90XgbCZS8jmROiQwTJFs"}`,
+          Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MDI5ZDZkNmFmMTk4ZWQ2MTgxNWExNiIsImlhdCI6MTc0ODA4MzU2NywiZXhwIjoxNzQ4MDg0NDY3fQ.s_zegYO-y6UFWntyFCZOW6xluCSXK9S8YmMRipINnvg"}`,
         }
       }
     )
