@@ -1,3 +1,9 @@
+/* login */
+body {
+  overflow-x: hidden;
+}
+
+
 .header {
   place-self: center;
   background-image: linear-gradient(to top right, #f8dc6c 50%, #f7efaa95);
@@ -128,9 +134,14 @@ button {
 }
 
 .bgclr {
-  background-color: #f7efaa;
-  width: 93%;
+  background-color:rgb(255, 255, 253);
+   /* #f7efaa; */
+  width:83%;
   cursor: pointer;
+  height: 170px;
+  margin-left: 18px;
+  border:2px solid black;
+  border-radius:40px
 }
 
 .bgclrempd {
@@ -138,7 +149,6 @@ button {
   width: 40%;
   cursor: pointer;
   margin-left: 31%;
-
 }
 
 .rightarw {
@@ -146,7 +156,13 @@ button {
   font-size: 25px;
   cursor: pointer;
   margin-left: 8vw;
+  flex-shrink: 0;
+}
 
+.rightarw:hover
+{
+  background-color:#ffbf00a5;
+  border-radius: 7px;
 }
 
 .firstletter {
@@ -176,13 +192,46 @@ button {
   font-weight: bold;
   font-size: 25px;
   margin-right: 15px;
+  margin-left: 42%;
+}
+
+.firstlettersatn {
+  background-Color: #ffbf00a5;
+  color: black;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 25px;
+  margin-right: 15px;
   margin-left: 47%;
 }
+
+.cardwidth
+{
+  width: 1400px;
+
+}
+.cardsize
+{
+  margin-left: 7%;
+}
+
+.okbtn
+{
+  margin-left: 34%;
+  outline: none;
+}
+
+
 
 /* attendance */
 
 .atnbgclr {
-  background-color: antiquewhite;
+  background-color: rgb(255, 254, 253);
   height: 50px;
   border-radius: 10px;
 }
@@ -203,5 +252,548 @@ button {
   margin-left: 10%;
 }
 
+.atncard
+{
+  background-color: #f1eeee;
+  width: 93%;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.bgclratndet
+{
+  background-color: #f7efaa;
+  width: 40%;
+  cursor: pointer;
+  margin-left: 31%;
+}
+
+.btn
+{
+  margin-left: 45%;
+  background-color: #f8dc6c;
+}
 
 
+
+
+
+/* responsive */
+
+@media (max-width:576px)
+{
+  /* home */
+ 
+  .btn1 {
+    width: 200px;
+    margin-left: 100px;
+  
+  }
+  
+  .btn2 {
+    width: 200px;
+    margin-left: 100px; 
+  }
+
+  .search {
+    margin-left: 21%;
+    margin-top: 20px;
+  }
+
+  .searchicon {
+    position: absolute;
+    left: 21%;
+    margin-top: 27px;
+    margin-left: 7px;
+   
+  }
+
+  .info {
+    /* margin-left: 300px; */
+    margin-bottom: 0px;
+    cursor: pointer;
+    position: absolute;
+    right:4%;
+   top:4%;
+
+    
+  }
+
+  .ed 
+  {
+    margin-left: 20px;
+  }
+
+  .bgclr
+  {
+    margin-left: 5px;
+  }
+
+  /* empdetails popups*/
+  .firstletters
+  {
+    margin-left: 41%;
+  }
+
+  .empnameid
+  {
+    margin-left: 5px;
+  }
+
+  /* .bgclrempd
+  {
+    width: 330px;
+    margin-left: 12px;
+  } */
+
+  .btn
+  {
+    margin-left: 120px;
+  }
+
+  .okbtn
+{
+  margin-left: 30%;
+}
+
+.pop
+{
+  margin-right: 10%;
+}
+
+  /* attendance */
+  .picker
+  {
+    margin-left: 30px;
+  }
+  
+  .atncard
+  {
+    margin-left: 18px;
+    width: 370px;
+   
+  }
+
+  .atnclr strong,p
+  {
+     font-size: 12px;
+     margin-top: 8px;
+  }
+
+  .atnclr p,strong
+  {
+     font-size: 12px;
+     margin-top: 8px;
+  }
+
+
+
+  /* atndetails */
+
+  .bgclratn
+  {
+    margin-left: 10px;
+    width: 348px;
+   
+  }
+
+  .bgclratn strong
+  {
+    margin-right: -10%;
+    
+  }
+
+  .bgclratndet
+  {
+    margin-left: -15px;
+    width: 370px;
+    font-size: 11px;
+    
+  }
+
+  .bgclrempd strong
+  {
+    font-size: 10px;
+   
+  }
+
+  .firstlettersatn {
+   
+    margin-left: 40%;
+  }
+}
+
+@media (min-width:580px) and (max-width:769px)
+{
+  /* home */
+ 
+  .btn1 {
+    width: 200px;
+    margin-left: 50px;
+  
+  }
+  
+  .btn2 {
+    width: 200px;
+  }
+
+  .search {
+    margin-left: 38%;
+    margin-top: 20px;
+  }
+
+  .searchicon {
+    position: absolute;
+    left: 38%;
+    margin-top: 27px;
+    margin-left: 7px;
+   
+  }
+
+  .info {
+    /* margin-left: 300px; */
+    margin-bottom: 0px;
+    cursor: pointer;
+    position: absolute;
+    right:2%;
+    top:5%;
+
+    
+  }
+
+  .ed 
+  {
+    margin-left: 70px;
+  }
+
+  .bgclr
+  {
+    width: 350px;
+    margin-left: 60%;
+  }
+
+ .align
+ {
+  flex-direction: column;
+ }
+
+ /* empdetails popups */
+ .firstletters
+ {
+   margin-left: 45%;
+ }
+
+ .empnameid
+ {
+   margin-left: 5px;
+ }
+
+ .bgclrempd
+ {
+   width: 330px;
+   margin-left: 190px;
+ }
+
+ .btn
+ {
+   margin-left: 335px;
+ }
+
+  /* attendance */
+  .picker
+  {
+    margin-left: 70px;
+  }
+  
+  .atncard
+  {
+    margin-left: 95%;
+    width: 365px;
+   
+  }
+
+  .atnclr strong,p
+  {
+     font-size: 12px;
+     margin-top: 8px;
+  }
+
+  .atnclr p,strong
+  {
+     font-size: 12px;
+     margin-top: 8px;
+  }
+
+   /* atndetails */
+
+   .bgclratn
+   {
+     margin-left: 25%;
+     width: 400px;
+    
+   }
+ 
+   .bgclratndet
+   {
+     margin-left: 24%;
+     width: 400px;
+     font-size: 11px;  
+   }
+}
+
+@media(min-width:900px) and (max-width:1024px)
+{
+  /* home */
+
+ 
+  .btn1 {
+    width: 200px;
+    margin-left: 180px;
+  
+  }
+  
+  .btn2 {
+    width: 200px;
+  }
+
+  .search {
+    margin-left: 42%;
+    margin-top: 20px;
+  }
+
+  .searchicon {
+    position: absolute;
+    left: 42%;
+    margin-top: 27px;
+    margin-left: 7px;
+   
+  }
+
+  .info {
+    /* margin-left: 300px; */
+    margin-bottom: 0px;
+    cursor: pointer;
+    position: absolute;
+    right:4%;
+    top:5%;
+
+    
+  }
+
+  .ed 
+  {
+    margin-left: 70px;
+  }
+
+  .bgclr
+  {
+    width: 400px;
+    margin-left: 65%;
+    height: 200px;
+  }
+
+ .align
+ {
+  flex-direction: column;
+ }
+ 
+ .tc
+ {
+  margin-left: 40px;
+ }
+
+ /* empdetails popups */
+.firstletters
+{
+  margin-left: 44%;
+}
+
+ .empnameid
+ {
+   margin-left: 15px;
+ }
+ .bgclrempd
+ {
+   width: 400px;
+   margin-left: 30%;
+ }
+
+ .btn
+ {
+   margin-left: 47%;
+ }
+
+  /* attendance */
+  .picker
+  {
+    margin-left: 80px;
+  }
+  
+  .atncard
+  {
+    margin-left: 95%;
+    width: 480px;
+   
+  }
+
+  /* atndetails */
+
+  .bgclratn
+  {
+    margin-left: 25%;
+    width: 500px;
+   
+  }
+
+  .bgclratndet
+  {
+    margin-left: 24%;
+    width: 500px;
+    font-size: 17px;  
+  }
+}
+
+@media(min-width:1900px) and (max-width:2000px)
+{
+  /* home */
+ 
+  .btn1 {
+    width: 200px;
+    margin-left: 30%;
+  
+  }
+  
+  .btn2 {
+    width: 200px;
+   
+  }
+
+  .search {
+    margin-left: 42%;
+    margin-top: 20px;
+  }
+
+  .searchicon {
+    position: absolute;
+    left: 42%;
+    margin-top: 27px;
+    margin-left: 7px;
+   
+  }
+
+  .info {
+    /* margin-left: 300px; */
+    margin-bottom: 0px;
+    cursor: pointer;
+    position: absolute;
+    right:1%;
+   top:4%;
+
+    
+  }
+
+  .ed 
+  {
+    margin-right: 55px;
+  }
+
+  .bgclr
+  {
+    margin-left: 29px;
+    width: 580px;
+    height: 250px;
+  }
+
+  .rightarw
+  {
+    font-size: 25px;
+    cursor: pointer;
+    margin-left: 14vw;
+    
+  }
+  .tc
+  {
+    margin-left: 40px;
+    font-size: 20px;
+  }
+
+
+  
+
+  /* empdetails popups */
+  .firstletters
+  {
+    margin-left: 40%;
+  }
+
+  .empnameid
+  {
+    margin-right: 5%;
+  }
+
+  .bgclrempd
+  {
+    width: 530px;
+    margin-left: 34%;
+  }
+
+  .btn
+  {
+    margin-left: 45%;
+  }
+
+
+ 
+  /* attendance */
+  .picker
+  {
+    margin-right: 50px;
+  }
+  
+  .atncard
+  {
+    margin-left: 40px;
+    width: 565px;
+   
+  }
+
+ 
+
+  .atnclr strong,p
+  {
+     font-size: 20px;
+     margin-top: 5px;
+     
+    
+  }
+
+  .atnclr p,strong
+  {
+     font-size: 20px;
+     margin-top: 5px;
+    
+  }
+
+  /* atndetails */
+
+  .bgclratn
+  {
+    margin-left: 32%;
+    width: 580px;
+   
+  }
+
+  .bgclratndet
+  {
+    margin-left: 32%;
+    width: 580px;
+    font-size: 11px;
+    
+  }
+
+  .namedesign
+  {
+    margin-left: 74px;
+  }
+
+}
