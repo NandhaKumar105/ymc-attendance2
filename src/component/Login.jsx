@@ -15,7 +15,7 @@ function Login() {
     // console.log(email,password)
 
     try {
-      const response = await fetch("https://attendance-eight-sand.vercel.app/api/admin/login",
+      const response = await fetch("/api/admin/login",
         {
           method: "POST",
           headers: {
@@ -23,15 +23,15 @@ function Login() {
             // "Authorization": `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MDI5ZDZkNmFmMTk4ZWQ2MTgxNWExNiIsImlhdCI6MTc0NTM4MTExNiwiZXhwIjoxNzQ1MzgyMDE2fQ.t1cUB3zSgOH0ooJQ3p33Hpwenx60NSn2BNAXjiptxrk"}`,
 
           },
-          body: JSON.stringify({ email, password })
+          body: JSON.stringify({ mailId: email, password })
 
         }
       )
 
       const data = await response.json()
-      console.log(data)
+      // console.log(data)
 
-      if (response.ok) {
+      if (response.ok && data.accessToken) {
         localStorage.setItem("token", data.accessToken)
         navigate("/home");
       }

@@ -10,12 +10,11 @@ import Popup from 'reactjs-popup';
 import sct from "../assets/sct.jpeg";
 import { TbWorld } from "react-icons/tb";
 import { IoMail } from "react-icons/io5";
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useDownloadExcel } from 'react-export-table-to-excel';
 import { MdKeyboardArrowRight } from "react-icons/md";
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
+import { useNavigate } from 'react-router-dom';
 
 
 function Home() {
@@ -27,14 +26,7 @@ function Home() {
   // date picker
   const [selecteddate, setselecteddate] = useState(null);
 
-
-
-  //   const tableRef= useRef(null)
-  //   const {onDownload}= useDownloadExcel({
-  //     currentTableRef:tableRef.current,
-  //     filename:"emp-info",
-  //     sheet:"emp"
-  // })
+  const navigate = useNavigate();
 
   const filteredUsers = data.filter(user => {
     const name = user.name?.toLowerCase().trim() || "";
@@ -52,20 +44,20 @@ function Home() {
 
 
   useEffect(() => {
-    // const accessToken = localStorage.getItem("token");
+    const accessToken = localStorage.getItem("token");
 
-    // if (!accessToken) {
-    //   // console.warn
-    //     alert("No token found. Redirecting to login.");
-    //   navigate("/"); 
-    //   return;
-    // }
+    if (!accessToken) {
+      // console.warn
+        alert("No token found. Redirecting to login.");
+      navigate("/"); 
+      return;
+    }
 
 
-    axios("api/employees/getAllEmployees",
+    axios("/api/employees/getAllEmployees",
       {
         headers: {
-          Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MDI5ZDZkNmFmMTk4ZWQ2MTgxNWExNiIsImlhdCI6MTc0ODA4MzU2NywiZXhwIjoxNzQ4MDg0NDY3fQ.s_zegYO-y6UFWntyFCZOW6xluCSXK9S8YmMRipINnvg"}`,
+          Authorization: `Bearer ${accessToken}`,
         }
       }
     )
@@ -101,26 +93,14 @@ function Home() {
     saveAs(fileData, 'EmployeeDetails.xlsx');
   };
   
-     
-  
-
-
-
   return (
 
     <>
-
-
-      {/* <Link to="/" className='text-decoration-none'> <GrFormPreviousLink className="leftaw" /> </Link>
-            <Link to='/attendance'> <GrFormNextLink className='rightarrow'/> </Link> */}
 
       <div className='content'>
         <img src={ymc} width={170} className='ymc'></img>
         <button className='btn1 bg-warning '>Employee's Details</button>
         <Link to='/attendance' className='text-decoration-none'><button className='btn2'>Employee's Attendance</button></Link>
-
-
-
 
         <Popup trigger={<IoMdInformationCircleOutline className='info' />} modal closeOnDocumentClick contentStyle={{ borderRadius: '12px', padding: '0', width: '90%', maxWidth: '400px' }}>
           {(close) => (
@@ -146,18 +126,6 @@ function Home() {
       <button className="btn mt-3 pt-1 " onClick={exportToExcel}>Export</button>
       </div>
 
-      {/* <div className="d-flex justify-content-center my-3 ms-1">
-         <label className="fw-bold"></label>
-         <DatePicker
-           selected={selecteddate}
-           onChange={(date) => setselecteddate(date)}
-           dateFormat="dd-MM-yyy"
-           placeholderText="    Select Date"
-           className="form-control dts"
-           maxDate={new Date()} />
-       </div> */}
-
-
       <h3 className='text-center mt-3 ed'>Employee's Details</h3>
       <div className="row align mt-5">
 
@@ -176,15 +144,9 @@ function Home() {
                   <p className="card-text ms-4">
                     <h5 className="card-title">{user.name}</h5>
                     <strong>ID:</strong> {user.empId}<br />
-                    {/* <strong>Username:</strong> {user.name}<br /> */}
-                    {/* <strong>Email:</strong> {user.mailId}<br />
-                      <strong>Phone:</strong> {user.contactNo}<br /> */}
                     <strong>Designation:</strong> {user.designation}<br />
-                    {/* <strong>Doj:</strong> {user.doj}<br/> */}
-
                   </p>
-                  {/* <Link to="/empdetails" state={{ employee: user }} className='text-dark'>  
-                   <MdKeyboardArrowRight className='rightarw' /> </Link> */}
+                 
 
                   <Popup  trigger={<MdKeyboardArrowRight className='rightarw' />} modal closeOnDocumentClick contentStyle={{ borderRadius: '12px', padding: '0', width: '85%', maxWidth: '500px' }}  contentClassName="pop">
                     {(close) => (

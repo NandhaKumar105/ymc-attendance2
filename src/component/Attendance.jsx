@@ -1,8 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import axios from "axios";
-import moment from "moment";
-import { GrFormPreviousLink } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import ymc from '../assets/ymc.jpeg';
@@ -25,20 +23,12 @@ function Attendance() {
   const [attendance, setattendance] = useState([])
   const [dateatn, setdateatn] = useState(null);
 
-  // const [users, setUsers] = useState([]);
-  // const [loading, setLoading] = useState(true);
-
-  // const [searchName, setSearchName] = useState('');
-  // const [searchId, setSearchId] = useState('');
-  // const [selectedDate, setSelectedDate] = useState(new Date());
-
-
   useEffect(() => {
-    // const accessToken = localStorage.getItem("token");
+    const accessToken = localStorage.getItem("token");
     axios("api/attendance/",
       {
         headers: {
-          Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MDI5ZDZkNmFmMTk4ZWQ2MTgxNWExNiIsImlhdCI6MTc0ODA4MzU2NywiZXhwIjoxNzQ4MDg0NDY3fQ.s_zegYO-y6UFWntyFCZOW6xluCSXK9S8YmMRipINnvg"}`
+          Authorization: `Bearer ${accessToken}`
         }
       }
     )
@@ -67,8 +57,7 @@ function Attendance() {
 
   return (
     <>
-      {/* <Link to="/home"> <GrFormPreviousLink className="leftaw" /></Link> */}
-
+      
       <div className="content">
         <img src={ymc} width={170}></img>
         <Link to='/home' className='text-decoration-none'><button className="btn1">Employee's Details</button></Link>
@@ -121,18 +110,10 @@ function Attendance() {
                     {user.employee?.name[0]}
                   </div>
 
-
-                  {/* <h6 className="card-subtitle mb-2 text-muted">{user.employee?.mailId}</h6> */}
                   
                   <div className="card-text ms-4">
                       <h5 className="card-title"> {user.employee?.name}</h5>
                       <strong>ID:</strong> {user.employee?.empId}<br />
-                   
-
-                    {/* <strong>Email:</strong>  {new Date(user.date).toLocaleDateString()} <br/> 
-                       <strong>Phone:</strong> {user.employee?.contactNo}<br />
-                      <strong>Designation:</strong> {user.employee?.designation}<br />
-                      <strong>Doj:</strong> {user.employee?.doj}<br/> */}
                   </div>
                   </div>
                 
@@ -148,17 +129,7 @@ function Attendance() {
                   <strong className='ms-4 date'>Date:</strong> <p className='ms-1'>{new Date(user.date).toLocaleDateString('en-GB')}</p> 
                   <strong className='ms-4 phone'>Phone:</strong> <p className='ms-1'>{user.employee?.contactNo}</p>
                   <strong className='ms-4 doj'>Doj:</strong> <p className='ms-1'>{new Date(user.employee?.doj).toLocaleDateString()}</p>
-                  {/* <strong>{new Date (user.sessions?.checkIn).toLocaleDateString()}</strong> */}
-
-
-
-                  {/* <strong className='ms-4'>Doj:</strong> {new Date(user.employee?.doj).toLocaleDateString()}<br />  */}
-
-
-
-                  {/* <strong> {user.sessions?.[0]?.checkIn && new Date(user.sessions[0].checkIn).toLocaleString()}</strong>
-                       <strong> {user.sessions?.[0]?.checkOut && new Date(user.sessions[0].checkOut).toLocaleString()}</strong>  */}
-
+                 
                 </div>
 
               </div>

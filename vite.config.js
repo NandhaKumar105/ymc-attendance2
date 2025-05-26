@@ -15,7 +15,7 @@ export default defineConfig({
     // ],
     proxy: {
       '/api': {
-        target: 'https://attendance-eight-sand.vercel.app',
+        target: 'https://smartattendance.shinecrafttechnologies.com',
         changeOrigin: true,
         // rewrite: (path) => path.replace(/^\/api/, '/api'),
         secure: false,
