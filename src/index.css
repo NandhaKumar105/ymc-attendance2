@@ -282,6 +282,16 @@ button {
 
 @media (max-width:576px)
 {
+   /* login */
+   .header
+   {
+    height: 350px;
+    margin-top: 40%;
+    width: 350px;
+   }
+
+
+
   /* home */
  
   .btn1 {
@@ -328,6 +338,13 @@ button {
   {
     margin-left: 5px;
   }
+  .cardsize
+  {
+    width: 400px;
+  }
+
+
+
 
   /* empdetails popups*/
   .firstletters
@@ -340,11 +357,11 @@ button {
     margin-left: 5px;
   }
 
-  /* .bgclrempd
+  .bgclrempd
   {
     width: 330px;
     margin-left: 12px;
-  } */
+  }
 
   .btn
   {
@@ -369,7 +386,7 @@ button {
   
   .atncard
   {
-    margin-left: 18px;
+    margin-left: 13px;
     width: 370px;
    
   }
@@ -397,11 +414,11 @@ button {
    
   }
 
-  .bgclratn strong
+  /* .bgclratn strong
   {
     margin-right: -10%;
     
-  }
+  } */
 
   .bgclratndet
   {
@@ -421,10 +438,26 @@ button {
    
     margin-left: 40%;
   }
+  .bgclrempd
+  {
+    margin-left: 5px;
+  }
+
+
 }
 
 @media (min-width:580px) and (max-width:769px)
 {
+   /* login */
+   .header
+   {
+    height: 350px;
+    margin-top: 16%;
+    width: 350px;
+   }
+
+
+
   /* home */
  
   .btn1 {
@@ -543,6 +576,16 @@ button {
 
 @media(min-width:900px) and (max-width:1024px)
 {
+
+  /* login */
+   .header
+   {
+    height: 350px;
+    margin-top: 20%;
+    width: 450px;
+   }
+
+
   /* home */
 
  
@@ -655,6 +698,15 @@ button {
 
 @media(min-width:1900px) and (max-width:2000px)
 {
+   /* login */
+   .header
+   {
+    height: 400px;
+    margin-top: 16%;
+    width: 450px;
+   }
+
+
   /* home */
  
   .btn1 {

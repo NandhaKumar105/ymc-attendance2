@@ -148,7 +148,7 @@ function Home() {
                   </p>
                  
 
-                  <Popup  trigger={<MdKeyboardArrowRight className='rightarw' />} modal closeOnDocumentClick contentStyle={{ borderRadius: '12px', padding: '0', width: '85%', maxWidth: '500px' }}  contentClassName="pop">
+                  <Popup  trigger={<MdKeyboardArrowRight className='rightarw' />} modal closeOnDocumentClick contentStyle={{ borderRadius: '12px', padding: '0', width: '80%', maxWidth: '400px' }}  contentClassName="pop">
                     {(close) => (
                       <div className="p-1 bg-white rounded ">
 

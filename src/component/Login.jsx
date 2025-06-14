@@ -28,7 +28,7 @@ function Login() {
         }
       )
 
-      const data = await response.json()
+      const data = await response.json()    //converting above response to json here
       // console.log(data)
 
       if (response.ok && data.accessToken) {
